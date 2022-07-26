@@ -1,0 +1,92 @@
+#joinInfo {
+    background-color: #ebebce;
+    padding: 5vh 4vw;
+
+    font-size: 3rem;
+    word-spacing: 4px;
+    text-align: center;
+}
+
+#joinInfo span {
+    display: block;
+    margin-top: 3px;
+    font-size: 1rem;
+}
+
+#joinInfo button {
+    background-color: #bf7934;
+    width: 75%;
+    padding: 1vh 0;
+    margin-top: 2vh;
+
+    color: #f7f7ff;
+    font-size: 1.27rem;
+    letter-spacing: 1px;
+
+    border-radius: 10px;
+}
+
+#usersInfo {
+    background-color: #f0f0da;
+    padding: 5vh 4vw;
+
+    font-size: 1.55rem;
+    word-spacing: 6px;
+    text-align: center;
+}
+
+#usersInfo div {
+    margin: 1.3vh auto;
+}
+
+#usersInfo span {
+    margin-top: 1.3vh;
+    margin-bottom: 1.3vh;
+
+    color: #2d2d59;
+    font-size: 1.95em;
+    font-weight: bold;
+}
+
+#userReviews {
+    background-color: #ededdd;
+    padding: 5vh 0 0;
+
+    font-size: 1.55rem;
+    word-spacing: 4px;
+}
+
+#userReviews > span {
+    display: block;
+    text-align: center;
+}
+
+#userReviews .review {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3vh auto 0;
+
+    border-bottom: 1px solid gray;
+}
+
+#userReviews .review img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#userReviews .review div:first-child {
+    width: 30%;
+    text-align: center;
+}
+
+#userReviews .review div:nth-child(2) {
+    width: 70%;
+}
+
+#userReviews .review div:last-child {
+    width: 100%;
+    text-align: center;
+    padding: 3vh 3vw;
+}
+

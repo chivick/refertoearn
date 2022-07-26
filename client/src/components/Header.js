@@ -4,6 +4,8 @@ const Header = () => {
   return (
     <header>
         Header
+
+        {styles && null}
     </header>
   )
 }
