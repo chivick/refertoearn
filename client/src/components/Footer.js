@@ -1,11 +1,22 @@
-
+import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <div>Footer
+    <footer>
 
-        Home, About Us, Advertise, Terms and Conditions, FAQs
-    </div>
+        <div>
+          <ul>
+            <li>About Us</li>
+            <li>Advertise</li>
+            <li>Terms and Conditions</li>
+            <li>FAQs</li>
+          </ul>
+        </div>
+        <br/>
+        <div>Copyright (c) {new Date().getFullYear()}</div>
+
+        {styles && null}
+    </footer>
   )
 }
 

@@ -3,6 +3,7 @@
 }
 
 body {
+  max-width: 100%;
   background-color: #f5f5e6;
   margin: 0;
   padding: 0;

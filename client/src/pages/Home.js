@@ -1,3 +1,6 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 import styles from './Home.module.css'
 import photo from '../assets/images/photo.jpg'
 
@@ -15,6 +18,8 @@ const userReviews = [
 const Home = () => {
   return (
     <div>
+        <Header />
+
         <div id={styles.joinInfo}>
             Get <small>$</small>10 for every person you refer.
             <br/> <button>JOIN NOW </button>
@@ -38,12 +43,14 @@ const Home = () => {
             ))}
         </div>
 
-        <div id='sponsors'>
+        <div id='sponsors' style={{display: 'none'}}>
             In collaboration with: <br/>
             AliWest <br/>
             MunPay <br/>
             ZetCo
         </div>
+
+        <Footer />
         
     </div>
   )

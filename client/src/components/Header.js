@@ -2,10 +2,8 @@ import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <header>
+    <header id={styles.header}>
         Header
-
-        {styles && null}
     </header>
   )
 }
