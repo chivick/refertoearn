@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "hashids": "^2.2.10",
     "mongoose": "^6.3.3"
   },
   "devDependencies": {
