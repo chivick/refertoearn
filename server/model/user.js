@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const userSchema = new mongoose.Schema({
-    fullname: {
+    fullName: {
         type: String,
         required: true,
     },
@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    refID: {
+        type: String
     },
     referrer: {
         type: String,

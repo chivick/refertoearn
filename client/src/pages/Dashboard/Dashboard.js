@@ -1,16 +1,23 @@
-import styles from './Dashboard.module.css'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/authContext'
+
 import DashboardHeader from './DashboardHeader'
 
+import styles from './Dashboard.module.css'
+
 const Dashboard = () => {
+
+  const { user } = useContext(AuthContext)
+
   return (
     <div>
         <DashboardHeader />
         
         <div id={styles.userSummary}>
-          <div>Unpaid Referrals: <br/> 5</div>
-          <div>Total Referrals: <br/> 13</div>
-          <div>Unpaid Earnings: <br/> $50</div>
-          <div>Total Earnings: <br/> $130</div>
+          <div>Unpaid Referrals: <br/> {user?.unpaidReferrals}</div>
+          <div>Total Referrals: <br/> {user?.totalReferrals}</div>
+          <div>Unpaid Earnings: <br/> ${user?.unpaidEarnings}</div>
+          <div>Total Earnings: <br/> ${user?.totalEarnings}</div>
 
           <div><button>Withdraw</button></div>
         </div>
@@ -19,10 +26,10 @@ const Dashboard = () => {
           <span id={styles.heading}>Referral Links:</span> <br/>
 
           <span className={styles.label}>To homepage:</span>
-          <input type='text' value='http://localhost:3000?ref=CHIVICK' /> <br/>
+          <input type='text' value={`http://localhost:3000?ref=${user?.refID}`} readOnly /> <br/>
 
           <span className={styles.label}>To signup page:</span>
-          <input type='text' value='http://localhost:3000/signup?ref=CHIVICK' />
+          <input type='text' value={`http://localhost:3000/signup?ref=${user?.refID}`} readOnly />
         </div>
 
     </div>
