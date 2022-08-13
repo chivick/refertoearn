@@ -34,8 +34,8 @@ const Home = () => {
         <div id={styles.userReviews}>
             <span>Here's what our users have to say</span> <hr/>
 
-            {userReviews.map(review => (
-                <div className={styles.review}>
+            {userReviews.map((review, index) => (
+                <div className={styles.review} key={index}>
                     <div><img src={photo} alt={review.user} /></div>
                     <div>{review.user}</div>
                     <div>{review.content}</div>

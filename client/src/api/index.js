@@ -8,5 +8,6 @@ const API = axios.create({baseURL: 'http://localhost:5000'})
 //     return req
 // })
 
+export const verifyRef = (referrer) => API.post('/users/verifyRef', referrer)
 export const addNewUser = (userDetails) => API.post('/users/new', userDetails)
 export const login = (userDetails) => API.post('/users/login', userDetails)

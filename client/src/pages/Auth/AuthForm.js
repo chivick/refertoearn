@@ -1,21 +1,24 @@
 import { useContext } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate} from 'react-router-dom'
 import useInput from "../../hooks/useInput"
 import { AuthContext } from "../../context/authContext"
-import { addNewUser, login } from '../../api'
+import { addNewUser, login, verifyRef } from '../../api'
 
 import styles from './AuthForm.module.css'
 
-const AuthForm = ({ type }) => {
+const AuthForm = ({ type, refID }) => {
 
     const [fullNameInputJsx, fullName, setFullName] = useInput({type: 'text', placeholder: 'e.g. Victor ChiVick'})
     const [emailInputJsx, email, setEmail] = useInput({type: 'text', placeholder: 'abc@xyz.com'})
     const [passwordInputJsx, password, setPassword] = useInput({type: 'password', placeholder: '******'})
     const [confirmPasswordInputJsx, confirmPassword, setConfirmPassword] = useInput({type: 'password', placeholder: '******'})
-    const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', disabled: true, placeholder: 'Referrer ID'}, 'CHIVICK')
+    const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', placeholder: 'Referrer ID'}, refID || '')
 
     const { setUser } = useContext(AuthContext)
+
     const navigate = useNavigate()
+    const location = useLocation()
+    
 
     const signUpInputs = [
       {label: 'Full Name', jsx: fullNameInputJsx}, 
@@ -37,27 +40,54 @@ const AuthForm = ({ type }) => {
         fullName, email, password, referrer 
       }
 
-      // if(type === 'signup') {
-      //   const { data } = await addNewUser(userDetails)
-      // } 
-
-      // if(type === 'login') {
-      //   const { data } = await login({ email, password })
-      // }
+      let data
+      let _verifyRef
 
       try {
 
-        const { data } = type === 'signup' ? await addNewUser(userDetails) : await login({ email, password })
+        if(type === 'signup' && referrer) {
+
+          try {
+            _verifyRef = await verifyRef({ referrer })
+          } catch (error) {
+            if (error.response.status === 400) {
+              let proceed = window.confirm("The referrer ID you inputed is not valid. IDs are case-sensitive, so check for typos. Do you still wish to proceed with registration?")
+              if(proceed) {
+                data = await addNewUser({...userDetails, referrer: ''})
+              } else {
+                return
+              }
+              
+            } 
+          }  
+
+          if (_verifyRef?.data) {
+            data = await addNewUser(userDetails)
+          }
+        }
+
+        if(type === 'signup' && !referrer) {
+          data = await addNewUser(userDetails)
+        }
+
+
+        if(type === 'login') {
+          data = await login({ email, password })
+        }
 
         if(data) {
 
-          setUser(data)
+          setUser(data.data)
 
-          navigate('/dashboard')
+          localStorage.setItem('user',JSON.stringify(data.data))
+
+          // Redirecting the user after authentication
+          navigate(location.state?.from?.pathname || '/dashboard')
         }
         
       } catch (error) {
-        alert(error.message)
+        // if(error.response.status === 400) 
+        alert(error.response.data)
       }
 
 

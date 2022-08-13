@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
     },
     referrer: {
         type: String,
-        required: true,
     },
     unpaidReferrals: {
         type: Number,

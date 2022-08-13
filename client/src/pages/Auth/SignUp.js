@@ -1,8 +1,8 @@
 import AuthForm from './AuthForm'
 
-const SignUp = () => {
+const SignUp = ({ refID }) => {
   return (
-    <AuthForm type='signup' />
+    <AuthForm type='signup' refID={refID} />
   )
 }
 
