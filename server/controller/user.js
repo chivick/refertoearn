@@ -61,7 +61,7 @@ export const addNewUser = async (req, res) => {
 
         const token = jwt.sign({ id: data._id, email: data.email }, 'test', { expiresIn: '1h' })
 
-        res.json({id: data._id, email: data.email, fullName: data.fullName, token })
+        res.json({id: data._id, token })
     
     } catch (error) {
         res.status(400).send(error.message)
@@ -83,7 +83,7 @@ export const login = async (req, res) => {
 
                 const token = jwt.sign({ id: user._id, email: user.email }, 'test', { expiresIn: '1h' })
 
-                res.json({id: user._id, email: user.email, fullName: user.fullName, token })
+                res.json({id: user._id, token })
 
             } else {
                 throw new Error('Invalid credentials.')
@@ -97,3 +97,23 @@ export const login = async (req, res) => {
     }
 
 }
+
+export const getUserDetails = async (req, res) => {
+
+    try {
+        const { userId } = req
+    
+        const user = await UserModel.findById(userId)
+
+        const data = { ...user.toObject() }
+
+        delete data.password
+
+        res.json(data)
+        
+    } catch (error) {
+        res.status(400).send("Something went wrong!")
+    }
+
+
+} 

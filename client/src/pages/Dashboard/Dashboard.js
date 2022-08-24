@@ -1,5 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/authContext'
+import { getUserDetails } from '../../api'
 
 import DashboardHeader from './DashboardHeader'
 
@@ -7,7 +9,25 @@ import styles from './Dashboard.module.css'
 
 const Dashboard = () => {
 
-  const { user } = useContext(AuthContext)
+  const { user, setUser } = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+
+    getUserDetails().then(response => {
+
+      setUser(response.data)
+
+    })
+
+  }, [setUser])
+
+  const logout = () => {
+    setUser(null)
+    localStorage.removeItem('user')
+    navigate('/')
+  }
 
   return (
     <div>
@@ -31,6 +51,8 @@ const Dashboard = () => {
           <span className={styles.label}>To signup page:</span>
           <input type='text' value={`http://localhost:3000/signup?ref=${user?.refID}`} readOnly />
         </div>
+
+        <button onClick={logout}>Logout</button>
 
     </div>
   )

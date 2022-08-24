@@ -1,8 +1,8 @@
-import { useContext } from "react"
+import { useContext } from 'react'
 import { useLocation, useNavigate} from 'react-router-dom'
 import useInput from "../../hooks/useInput"
-import { AuthContext } from "../../context/authContext"
 import { addNewUser, login, verifyRef } from '../../api'
+import { AuthContext } from '../../context/authContext'
 
 import styles from './AuthForm.module.css'
 
@@ -14,10 +14,10 @@ const AuthForm = ({ type, refID }) => {
     const [confirmPasswordInputJsx, confirmPassword, setConfirmPassword] = useInput({type: 'password', placeholder: '******'})
     const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', placeholder: 'Referrer ID'}, refID || '')
 
-    const { setUser } = useContext(AuthContext)
-
     const navigate = useNavigate()
     const location = useLocation()
+
+    const { setUser } = useContext(AuthContext)
     
 
     const signUpInputs = [
@@ -77,17 +77,24 @@ const AuthForm = ({ type, refID }) => {
 
         if(data) {
 
-          setUser(data.data)
+          localStorage.removeItem('referrer')
 
           localStorage.setItem('user',JSON.stringify(data.data))
+
+          setUser(data.data)
 
           // Redirecting the user after authentication
           navigate(location.state?.from?.pathname || '/dashboard')
         }
         
       } catch (error) {
-        // if(error.response.status === 400) 
-        alert(error.response.data)
+        // if(error.response.status === 400)
+        if(error.response) {
+          alert(error.response.data)
+        } else {
+          console.log(error.message)
+        }
+        
       }
 
 
