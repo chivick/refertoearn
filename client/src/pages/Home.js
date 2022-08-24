@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -16,13 +18,16 @@ const userReviews = [
 ]
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
   return (
     <div>
         <Header />
 
         <div id={styles.joinInfo}>
             Get <small>$</small>10 for every person you refer.
-            <br/> <button>JOIN NOW </button>
+            <br/> <button onClick={() => navigate('/signup')}>JOIN NOW </button>
             <span>You get free $2 when you sign up.</span>
         </div>
 

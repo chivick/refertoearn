@@ -1,4 +1,7 @@
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 import perma from 'perma'
+
 import UserModel from "../model/user.js"
 
 export const welcomePage = (req, res) => { 
@@ -33,8 +36,10 @@ export const addNewUser = async (req, res) => {
         if (existingUser) {
             throw new Error('Email is already registered')
         }
+
+        const hashedPassword = await bcrypt.hash(password, 12)
         
-        const newUser = await UserModel.create({ fullName, email, password, referrer })
+        const newUser = await UserModel.create({ fullName, email, password: hashedPassword, referrer })
         
         newUser.refID = perma(newUser._id, 6)
         
@@ -54,7 +59,9 @@ export const addNewUser = async (req, res) => {
             }
         }
 
-        res.json(data)
+        const token = jwt.sign({ id: data._id, email: data.email }, 'test', { expiresIn: '1h' })
+
+        res.json({id: data._id, email: data.email, fullName: data.fullName, token })
     
     } catch (error) {
         res.status(400).send(error.message)
@@ -70,8 +77,14 @@ export const login = async (req, res) => {
         const user = await UserModel.findOne({ email })
 
         if(user) {
-            if(password === user.password) {
-                res.json(user)
+            const isPasswordCorrect = await bcrypt.compare(password, user.password)
+
+            if(isPasswordCorrect) {
+
+                const token = jwt.sign({ id: user._id, email: user.email }, 'test', { expiresIn: '1h' })
+
+                res.json({id: user._id, email: user.email, fullName: user.fullName, token })
+
             } else {
                 throw new Error('Invalid credentials.')
             }
