@@ -15,9 +15,9 @@
 
 #joinInfo button {
     background-color: #bf7934;
-    width: 75%;
-    padding: 1vh 0;
-    margin-top: 2vh;
+    width: 70%;
+    padding: 1vw 0;
+    margin-top: 2vw;
 
     color: #f7f7ff;
     font-size: 1.27rem;
@@ -45,6 +45,7 @@
 
     color: #2d2d59;
     font-size: 1.95em;
+    letter-spacing: 3px;
     font-weight: bold;
 }
 
@@ -88,5 +89,15 @@
     width: 100%;
     text-align: center;
     padding: 3vh 3vw;
+}
+
+@media (min-width: 992px) {
+    #joinInfo button {
+        width: 40%;
+    }
+    #usersInfo span {
+        font-size: 5vw;
+        letter-spacing: 0.4vw;
+    }
 }
 

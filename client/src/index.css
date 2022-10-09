@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
+  font-family: 'Josefin Sans';
 }
 
 body {

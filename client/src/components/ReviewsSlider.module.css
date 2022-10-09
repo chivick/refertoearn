@@ -1,0 +1,55 @@
+#userReviews {
+    background-color: #ededdd;
+    padding: 4vw 0 0;
+
+    font-size: 1.55rem;
+    word-spacing: 4px;
+}
+
+#userReviews > span {
+    display: block;
+    text-align: center;
+}
+
+#userReviews #main {
+    display: flex;
+}
+
+#userReviews #main #left, #userReviews #main #right {
+    width: 10%
+}
+
+#userReviews #main button {
+    width: 100%;
+    min-height: 100%;
+}
+
+#userReviews .review {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+
+    border-bottom: 1px solid gray;
+}
+
+#userReviews .review img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+#userReviews .review div:first-child {
+    width: 30%;
+    text-align: center;
+}
+
+#userReviews .review div:nth-child(2) {
+    width: 70%;
+}
+
+#userReviews .review div:last-child {
+    width: 100%;
+    text-align: center;
+    padding: 3vw;
+}

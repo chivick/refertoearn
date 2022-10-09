@@ -32,8 +32,8 @@ const Home = () => {
         </div>
 
         <div id={styles.usersInfo}>
-            <div>We have paid <br/> <span><small>$</small>37,836,800<small>+</small></span></div>
-            <div>To our <br/> <span>496,930<small>+</small></span> <br/> members</div>
+            <div>We have paid <br/> <span><small>$</small>3,836,800<small>+</small></span></div>
+            <div>To our <br/> <span>796,930<small>+</small></span> <br/> members</div>
         </div>
 
         <div id={styles.userReviews}>
