@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 import styles from './Home.module.css'
-import photo from '../assets/images/photo.jpg'
+import ReviewsSlider from '../components/ReviewsSlider';
 
 const userReviews = [
     { 
@@ -15,6 +15,10 @@ const userReviews = [
         user: 'Sarah McKent', 
         content: "Ever since joining this platform, I've had the best user experience as the website is easy to navigate and easy to understand the functionality. And most importantly, making money on this platform has always been a good addition to my income."
     },
+    { 
+        user: 'Michael Scott', 
+        content: "I love the fact that you can make cool money on this platform just by referring freinds and relatives."
+    },
 ]
 
 const Home = () => {
@@ -22,7 +26,7 @@ const Home = () => {
     const navigate = useNavigate()
 
   return (
-    <div>
+    <>
         <Header />
 
         <div id={styles.joinInfo}>
@@ -36,17 +40,7 @@ const Home = () => {
             <div>To our <br/> <span>796,930<small>+</small></span> <br/> members</div>
         </div>
 
-        <div id={styles.userReviews}>
-            <span>Here's what our users have to say</span> <hr/>
-
-            {userReviews.map((review, index) => (
-                <div className={styles.review} key={index}>
-                    <div><img src={photo} alt={review.user} /></div>
-                    <div>{review.user}</div>
-                    <div>{review.content}</div>
-                </div>
-            ))}
-        </div>
+        <ReviewsSlider data={userReviews} />
 
         <div id='sponsors' style={{display: 'none'}}>
             In collaboration with: <br/>
@@ -57,7 +51,7 @@ const Home = () => {
 
         <Footer />
         
-    </div>
+    </>
   )
 }
 

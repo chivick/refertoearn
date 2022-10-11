@@ -1,9 +1,15 @@
 #header {
     width: 95%;
     margin: 0 auto;
-    padding: 4vh 5vw;
+    padding: 4vw 5vw;
 
     font-size: 1.45rem;
 
     border-bottom: 1px solid gray;
+}
+
+#header #logo {
+    padding-left: 16px;
+    font-size: 1.5rem;
+    /* width: 80%; */
 }

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+import photo from '../assets/images/photo.jpg'
 import styles from './ReviewsSlider.module.css'
 
 const ReviewsSlider = ({ data }) => {
@@ -6,10 +8,20 @@ const ReviewsSlider = ({ data }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const prevHandler = (e) => {
-        
+        if(currentIndex === 0) {
+          setCurrentIndex(totalData - 1)
+        }
+        if(currentIndex > 0) {
+          setCurrentIndex(curr => curr - 1)
+        }
     }
+
     const nextHandler = (e) => {
-            
+          if((currentIndex + 1) < totalData) {
+            setCurrentIndex(curr => curr + 1)
+          }  else {
+            setCurrentIndex(0)
+          }
     }
 
   return (

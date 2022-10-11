@@ -1,12 +1,42 @@
 footer {
+    width: 100%;
     background-color: #2d3d4d;
     padding: 5vh 5vw;
 
     color: white;
 }
 
+footer #footerLinks {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 footer ul {
+    width: 33%;
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+footer li {
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer #copyright {
+    color: #f0f0da;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media (min-width: 992px) {
+    footer li {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
 }

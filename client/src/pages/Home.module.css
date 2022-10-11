@@ -1,4 +1,5 @@
 #joinInfo {
+    width: 100%;
     background-color: #ebebce;
     padding: 5vh 4vw;
 
@@ -27,6 +28,7 @@
 }
 
 #usersInfo {
+    width: 100%;
     background-color: #f0f0da;
     padding: 5vh 4vw;
 
@@ -47,48 +49,6 @@
     font-size: 1.95em;
     letter-spacing: 3px;
     font-weight: bold;
-}
-
-#userReviews {
-    background-color: #ededdd;
-    padding: 5vh 0 0;
-
-    font-size: 1.55rem;
-    word-spacing: 4px;
-}
-
-#userReviews > span {
-    display: block;
-    text-align: center;
-}
-
-#userReviews .review {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 3vh auto 0;
-
-    border-bottom: 1px solid gray;
-}
-
-#userReviews .review img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-#userReviews .review div:first-child {
-    width: 30%;
-    text-align: center;
-}
-
-#userReviews .review div:nth-child(2) {
-    width: 70%;
-}
-
-#userReviews .review div:last-child {
-    width: 100%;
-    text-align: center;
-    padding: 3vh 3vw;
 }
 
 @media (min-width: 992px) {

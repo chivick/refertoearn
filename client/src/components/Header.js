@@ -1,12 +1,21 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Header.module.css'
 import menuIcon from '../assets/images/menu-icon1.png'
-import Loader from './Loader'
 
 const Header = () => {
 
   const [showNav, setShowNav] = useState(false)
+
+  const navLinks = 
+  <>
+    <Link to="/">Home</Link>
+    <Link to="/">About</Link>
+    <Link to="/">Contact</Link>
+    <Link to='/signup'>Signup</Link>
+    <Link to='/login'>Login</Link>
+  </>
 
   return (
     <>
@@ -18,20 +27,15 @@ const Header = () => {
           <img src={menuIcon} alt='' onClick={()=>setShowNav(prev=>!prev)} />
 
           <nav id={styles.desktopNav}>
-              <a href="/">Home</a>
-              <a href="/">About</a>
-              <a href="/">Contact</a>
+              {navLinks}
           </nav>
       </div>
 
     </header>
-    <Loader />
 
     {showNav && (
       <nav id={styles.mobileNav}>
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Contact</a>
+          {navLinks}
       </nav>
     )}
     </>
