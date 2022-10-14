@@ -30,11 +30,11 @@ const userSchema = new mongoose.Schema({
     },
     unpaidEarnings: {
         type: Number,
-        default: 0,
+        default: 2,
     },
     totalEarnings: {
         type: Number,
-        default: 0,
+        default: 2,
     },
 })
 

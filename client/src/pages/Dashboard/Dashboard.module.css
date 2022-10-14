@@ -1,51 +1,95 @@
 #userSummary {
+    background-color: #f7f7e6;
     display: flex;
     flex-wrap: wrap;
-    margin: 8px auto;
-
+    padding: 3vh 0;
     border-bottom: 1px solid gray;
 }
 
 #userSummary > div {
     width: 50%;
     padding: 3vh;
-
-    /* border: 1px solid red; */
-    font-size: 1.35rem;
+    font-size: 1.1em;
     text-align: center;
+}
+
+#userSummary > div > span {
+    font-size: 1.8em;
 }
 
 #userSummary > div:last-child {
     width: 100%;
-    padding: 0 3vh 3vh 0;
+    padding: 0 5vw 3vw 0;
     text-align: right;
 }
 
 #userSummary button {
-    width: 50%;
+    padding: 10px 25px;
+    background-color: #7c7ca6;
+    color: white;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
 }
 
 #referralLinks {
-    padding: 4vh 4vw;
+    background-color: #f2f2df;
+    padding: 4vh;
     border-bottom: 1px solid gray;
 }
 
 #referralLinks #heading {
     display: block;
     margin: 8px auto;
+    font-size: 1.5em;
 }
 
 #referralLinks .label {
     display: block;
     margin: 8px auto;
+    color: #5c5c99;
 }
 
 #referralLinks input {
     display: block;
-    width: 80%;
-
-    padding: 7px;
-
+    width: 90%;
+    padding: 10px;
+    font-style: italic;
+    color: #4a4a4a;
     outline: none;
-    border: 1px inset gray;
+    /* border: 1px inset gray; */
+    border-radius: 7px;
+}
+
+#referralLinks small {
+    color: #7c7c7c;
+    padding-left: 2px;
+}
+
+@media (min-width: 992px) {
+    #userSummary {
+        padding: 0;
+    }
+
+    #userSummary > div {
+        padding: 3vw;
+    }
+
+    #userSummary > div:last-child {
+        padding-right: 19vw;
+    }
+
+    #userSummary button {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    #referralLinks {
+        padding: 4vw;
+    }
+
+    #referralLinks input {
+        width: 35%;
+        text-indent: 8px;
+    }
 }

@@ -1,6 +1,7 @@
 #header {
-    width: 95%;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #e6e6ca;
     padding: 4vw 5vw;
 
     font-size: 1.45rem;
@@ -10,6 +11,46 @@
 
 #header #logo {
     padding-left: 16px;
-    font-size: 1.5rem;
-    /* width: 80%; */
+    color: #4b4b80;
+    font-size: 1.9rem;
+    width: 40%;
+}
+
+#header > div:last-child {
+    width: 60%;
+    text-align: right;
+}
+
+#header > div:last-child > span {
+    display: none;
+}
+
+#header button {
+    background-color: #e6b8b8;
+    padding: 8px;
+    border: 1px solid #ad8b8b;
+    border-radius: 8px;
+    color: #6a6a6a;
+}
+
+#loginInfo {
+    /* background-color: gray; */
+    padding: 4px;
+    margin-right: 8px;
+    text-align: right;
+    color: #909090;
+    font-size: 0.7em;
+}
+
+@media (min-width: 992px) {
+    #header > div:last-child > span {
+        display: inline-block;
+        margin-right: 8px;
+        color: #7e7e7e;
+        font-size: 0.7em;
+    }
+
+    #loginInfo {
+        display: none;
+    }
 }
