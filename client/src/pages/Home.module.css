@@ -83,6 +83,52 @@
     border-radius: 20%;
 }
 
+#loginFormDiv {
+    background-color: #f0e8d8;
+    padding: 4vw 7vw;
+}
+
+#loginFormDiv > span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#loginFormDiv label {
+    display: block;
+    margin: 5px 0;
+    color: #7c7c7c;
+    font-size: 0.95em;
+    text-indent: 2px;
+}
+
+#loginFormDiv input {
+    display: block;
+    width: 65vw;
+    background-color: #f5f5e6;
+    color: #606060;
+    text-indent: 5px;
+    padding: 4px;
+    border: 1px solid #b3b39d;
+    margin-bottom: 6px;
+    outline: none;
+}
+
+#loginFormDiv button {
+    background-color: #5f5f99;
+    border: 2px solid #4b4b80;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 15%;
+}
+
+#loginFormDiv > div:last-child {
+    color: #4c4c4c;
+    font-size: 0.82em;
+    text-align: right;
+    margin: 3px 0;
+}
+
 @media (min-width: 992px) {
     #joinInfo button {
         width: 40%;
@@ -113,6 +159,31 @@
     }
     #sponsorsLogo img {
         max-width: 70%;
+    }
+    #loginFormDiv form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #loginFormDiv label {
+        width: 30%;
+        text-indent: 20px;
+    }
+    #loginFormDiv input {
+        width: 50%;
+        text-indent: 10px;
+        letter-spacing: 1px;
+    }
+    #loginFormDiv form > div:last-child {
+        width: 80%;
+        text-align: right;
+        margin-top: 3px;
+    }
+    #loginFormDiv button {
+        padding: 6px 20px;
+    }
+    #loginFormDiv > div:last-child {
+        text-align: left;
+        padding-left: 20px;
     }
 }
 

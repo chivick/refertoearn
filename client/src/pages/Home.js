@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import useInput from "../hooks/useInput"
 
@@ -28,9 +28,12 @@ const Home = () => {
 
     const navigate = useNavigate()
 
-    const [emailInputJsx, email] = useInput({type: 'text', placeholder: 'abc@xyz.com'})
-    const [passwordInputJsx, password] = useInput({type: 'password', placeholder: '******'})
+    const [emailInputJsx, email] = useInput({type: 'text', placeholder: ''})
+    const [passwordInputJsx, password] = useInput({type: 'password', placeholder: ''})
 
+    const login = (e) => {
+        e.preventDefault()
+    }
   return (
     <>
         <Header />
@@ -46,18 +49,20 @@ const Home = () => {
             <div>To our <br/> <span>225,930<small>+</small></span> <br/> members</div>
         </div>
 
-        {/* <div id={styles.loginFormDiv}>
-            Login to your account
-            <form>
+        <div id={styles.loginFormDiv}>
+            <span>Login to your account</span>
+            <form onSubmit={login}>
                 <label>Email:</label>
                 {emailInputJsx}
 
                 <label>Password:</label>
                 {passwordInputJsx}
+                
+                <div><button>Login</button></div>
 
-                <button>Login</button>
             </form>
-        </div> */}
+            <div>Don't have an account? <Link to='/signup'>Register</Link></div>
+        </div>
 
         <ReviewsSlider data={userReviews} />
 
