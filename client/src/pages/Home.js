@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 
+import useInput from "../hooks/useInput"
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ReviewsSlider from '../components/ReviewsSlider';
+import sponsors from '../assets/sponsors';
 
 import styles from './Home.module.css'
-import ReviewsSlider from '../components/ReviewsSlider';
 
 const userReviews = [
     { 
@@ -13,7 +16,7 @@ const userReviews = [
     },
     { 
         user: 'Sarah McKent', 
-        content: "Ever since joining this platform, I've had the best user experience as the website is easy to navigate and easy to understand the functionality. And most importantly, making money on this platform has always been a good addition to my income."
+        content: "Ever since joining this platform, I've had the best user experience as the website is easy to navigate and easy to understand. And most importantly, making money on this platform has always been a good addition to my income."
     },
     { 
         user: 'Michael Scott', 
@@ -24,6 +27,9 @@ const userReviews = [
 const Home = () => {
 
     const navigate = useNavigate()
+
+    const [emailInputJsx, email] = useInput({type: 'text', placeholder: 'abc@xyz.com'})
+    const [passwordInputJsx, password] = useInput({type: 'password', placeholder: '******'})
 
   return (
     <>
@@ -36,17 +42,33 @@ const Home = () => {
         </div>
 
         <div id={styles.usersInfo}>
-            <div>We have paid <br/> <span><small>$</small>3,836,800<small>+</small></span></div>
-            <div>To our <br/> <span>796,930<small>+</small></span> <br/> members</div>
+            <div>We have paid <br/> <span><small>$</small>1,036,850<small>+</small></span></div>
+            <div>To our <br/> <span>225,930<small>+</small></span> <br/> members</div>
         </div>
+
+        {/* <div id={styles.loginFormDiv}>
+            Login to your account
+            <form>
+                <label>Email:</label>
+                {emailInputJsx}
+
+                <label>Password:</label>
+                {passwordInputJsx}
+
+                <button>Login</button>
+            </form>
+        </div> */}
 
         <ReviewsSlider data={userReviews} />
 
-        <div id='sponsors' style={{display: 'none'}}>
-            In collaboration with: <br/>
-            AliWest <br/>
-            MunPay <br/>
-            ZetCo
+        <div id={styles.sponsors}>
+            <span>Sponsored by:</span>
+
+            <div id={styles.sponsorsLogo}>
+                {sponsors.map((sponsor, index) => {
+                    return <div><img src={sponsor} alt={`sponsor${index+1}`} /></div>
+                })}
+            </div>
         </div>
 
         <Footer />

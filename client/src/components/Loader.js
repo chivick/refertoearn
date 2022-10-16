@@ -1,11 +1,12 @@
 import * as React from "react"
 
-const Loader = (props) => (
+import styles from './Loader.module.css'
+
+const Spinner = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
       margin: "auto",
-    //   background: "rgba(0,0,0,0.8)",
       display: "block",
     }}
     width={200}
@@ -208,5 +209,13 @@ const Loader = (props) => (
     </circle>
   </svg>
 )
+
+const Loader = () => {
+  return (
+    <div className={styles.backdrop}>
+      <Spinner />
+    </div>
+  )
+}
 
 export default Loader

@@ -27,7 +27,8 @@ const ReviewsSlider = ({ data }) => {
   return (
     <>
     <div id={styles.userReviews}>
-        <span>Here's what our users have to say</span> <hr/>
+      <span>Here's what our users have to say</span>
+      <div>
 
         <div id={styles.main}>
 
@@ -41,9 +42,8 @@ const ReviewsSlider = ({ data }) => {
 
             <div id={styles.right}><button onClick={nextHandler}>&gt;</button></div>
         </div>
+      </div>
 
-        
-        
     </div>
     </>
   )

@@ -1,7 +1,7 @@
 #joinInfo {
     width: 100%;
     background-color: #ebebce;
-    padding: 5vh 4vw;
+    padding: 5vw 4vw;
 
     font-size: 3rem;
     word-spacing: 4px;
@@ -52,6 +52,37 @@
     font-weight: bold;
 }
 
+#sponsors {
+    background-color: #dae0d5;
+    margin: 0 auto;
+    padding: 4vw 0;
+}
+
+#sponsors > span {
+    display: block;
+    padding-left: 13px;
+    margin-bottom: 6px;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+#sponsors #sponsorsLogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#sponsorsLogo div {
+    width: 30%;
+    text-align: center;
+}
+
+#sponsorsLogo img {
+    max-width: 65%;
+    border-radius: 20%;
+}
+
 @media (min-width: 992px) {
     #joinInfo button {
         width: 40%;
@@ -62,6 +93,26 @@
     #usersInfo span {
         font-size: 5vw;
         letter-spacing: 0.4vw;
+    }
+    #sponsors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2vw 0;
+    }
+    #sponsors > span {
+        font-size: 1.4rem;
+    }
+    #sponsorsLogo {
+        width: 60%;
+    }
+    #sponsorsLogo div {
+        width: 16%;
+        margin-bottom: 4px;
+    }
+    #sponsorsLogo img {
+        max-width: 70%;
     }
 }
 
