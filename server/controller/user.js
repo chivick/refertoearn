@@ -31,10 +31,20 @@ export const addNewUser = async (req, res) => {
 
         const { fullName, email, password, referrer } = req.body
 
+        if(fullName.length < 6) {
+            throw new Error('Name must be at least 6 characters long.')
+        } 
+        if(!email.includes('@') || !email.includes('.') || email.length < 6) {
+            throw new Error('Email is not valid.')
+        } 
+        if(password.length < 6) {
+            throw new Error('Password must be at least 6 characters long.')
+        }
+
         const existingUser = await UserModel.findOne({ email })
 
         if (existingUser) {
-            throw new Error('Email is already registered')
+            throw new Error('Email is already registered.')
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)

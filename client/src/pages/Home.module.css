@@ -84,7 +84,7 @@
 }
 
 #loginFormDiv {
-    background-color: #f0e8d8;
+    background-color: #f0eddd;
     padding: 4vw 7vw;
 }
 
@@ -110,6 +110,7 @@
     text-indent: 5px;
     padding: 4px;
     border: 1px solid #b3b39d;
+    border-radius: 5px;
     margin-bottom: 6px;
     outline: none;
 }

@@ -8,11 +8,11 @@ import styles from './AuthForm.module.css'
 
 const AuthForm = ({ type, refID }) => {
 
-    const [fullNameInputJsx, fullName, setFullName] = useInput({type: 'text', placeholder: 'e.g. Victor ChiVick'})
-    const [emailInputJsx, email, setEmail] = useInput({type: 'text', placeholder: 'abc@xyz.com'})
-    const [passwordInputJsx, password, setPassword] = useInput({type: 'password', placeholder: '******'})
-    const [confirmPasswordInputJsx, confirmPassword, setConfirmPassword] = useInput({type: 'password', placeholder: '******'})
-    const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', placeholder: 'Referrer ID'}, refID || '')
+    const [fullNameInputJsx, fullName, setFullName] = useInput({type: 'text', placeholder: ''})
+    const [emailInputJsx, email, setEmail] = useInput({type: 'text', placeholder: ''})
+    const [passwordInputJsx, password, setPassword] = useInput({type: 'password', placeholder: ''})
+    const [confirmPasswordInputJsx, confirmPassword, setConfirmPassword] = useInput({type: 'password', placeholder: ''})
+    const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', placeholder: ''}, refID || '')
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -42,6 +42,14 @@ const AuthForm = ({ type, refID }) => {
 
       let data
       let _verifyRef
+
+      // Form validation for registration
+      if(type === 'signup') {
+        if(fullName.length < 6) return alert('Name must be at least 6 characters long!')
+        if(!email.includes('@') || !email.includes('.') || email.length < 6) return alert('Email is not valid!')
+        if(password.length < 6)  return alert('Password must be at least 6 characters long!')
+        if(password !== confirmPassword) return alert('Passwords do not match!')
+      }
 
       try {
 

@@ -43,10 +43,10 @@ const Dashboard = () => {
         <DashboardHeader logout={logout} fullName={user?.fullName} email={user?.email} />
         
         <div id={styles.userSummary}>
-          <div>Unpaid Referrals: <br/> <span>{user?.unpaidReferrals}</span></div>
           <div>Total Referrals: <br/> <span>{user?.totalReferrals}</span></div>
-          <div>Unpaid Earnings: <br/> <span>${user?.unpaidEarnings}</span></div>
+          <div>Unpaid Referrals: <br/> <span>{user?.unpaidReferrals}</span></div>
           <div>Total Earnings: <br/> <span>${user?.totalEarnings}</span></div>
+          <div>Unpaid Earnings: <br/> <span>${user?.unpaidEarnings}</span></div>
 
           <div><button onClick={withdraw}>Withdraw</button></div>
         </div>

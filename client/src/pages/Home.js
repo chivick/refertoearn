@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 
+import { AuthContext } from '../context/authContext';
 import useInput from "../hooks/useInput"
+
+import { login as sendLoginRequest} from '../api'
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -26,13 +30,35 @@ const userReviews = [
 
 const Home = () => {
 
+    const { setUser } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const [emailInputJsx, email] = useInput({type: 'text', placeholder: ''})
     const [passwordInputJsx, password] = useInput({type: 'password', placeholder: ''})
 
-    const login = (e) => {
+    const login = async(e) => {
         e.preventDefault()
+        
+        try {
+            const response = await sendLoginRequest({ email, password })
+
+            if(response) {
+
+                localStorage.removeItem('referrer')
+      
+                localStorage.setItem('user',JSON.stringify(response.data))
+      
+                setUser(response.data)
+                navigate('/dashboard')
+              }
+            
+        } catch (error) {
+            if(error.response) {
+                alert(error.response.data)
+            } else {
+                console.log(error.message)
+            }
+        }
     }
   return (
     <>
