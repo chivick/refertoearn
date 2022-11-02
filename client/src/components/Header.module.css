@@ -21,7 +21,8 @@
 }
 
 nav#mobileNav {
-    background-color: #e1ebe6;
+    background-color: #6b6b99;
+    padding: 4px 0;
 }
 
 nav#desktopNav {
@@ -37,7 +38,7 @@ header img {
 nav#mobileNav a {
     text-align: center;
     text-decoration: none;
-    color: #505050;
+    color: white;
     display: block;
     padding: 10px 0;
 }

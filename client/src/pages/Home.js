@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 import { AuthContext } from '../context/authContext';
 import useInput from "../hooks/useInput"
@@ -12,6 +13,7 @@ import ReviewsSlider from '../components/ReviewsSlider';
 import sponsors from '../assets/sponsors';
 
 import styles from './Home.module.css'
+import { joinButtonVariants, usersInfoVariants } from '../others/variants'
 
 const userReviews = [
     { 
@@ -65,14 +67,36 @@ const Home = () => {
         <Header />
 
         <div id={styles.joinInfo}>
-            Get <small>$</small>10 for every person you refer.
-            <br/> <button onClick={() => navigate('/signup')}>JOIN NOW </button>
+            Get <small>$</small>10 for every person you refer.<br/>
+            <motion.button onClick={() => navigate('/signup')}
+                variants={joinButtonVariants}
+                animate='animate'
+            >JOIN NOW </motion.button>
             <span>You get free $2 when you sign up.</span>
         </div>
 
         <div id={styles.usersInfo}>
-            <div>We have paid <br/> <span><small>$</small>1,036,850<small>+</small></span></div>
-            <div>To our <br/> <span>225,930<small>+</small></span> <br/> members</div>
+            <div>
+                We have paid <br/> 
+                <motion.span
+                    variants={usersInfoVariants}
+                    initial='initial'
+                    animate='animate'
+                >
+                    <small>$</small>1,036,850<small>+</small>
+                </motion.span>
+            </div>
+            <div>
+                To our <br/> 
+                <motion.span
+                    variants={usersInfoVariants}
+                    initial='initial'
+                    animate='animate'
+                >
+                    225,930<small>+</small>
+                </motion.span> 
+                members
+            </div>
         </div>
 
         <div id={styles.loginFormDiv}>

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import styles from './Header.module.css'
 import menuIcon from '../assets/images/menu-icon1.png'
+import { mobileNavVariants } from '../others/variants'
 
 const Header = () => {
 
@@ -33,11 +35,18 @@ const Header = () => {
 
     </header>
 
-    {showNav && (
-      <nav id={styles.mobileNav}>
-          {navLinks}
-      </nav>
-    )}
+    <AnimatePresence exitBeforeEnter>
+      {showNav && (
+        <motion.nav id={styles.mobileNav}
+          variants={mobileNavVariants}
+          initial='initial'
+          animate='animate'
+          exit='initial'
+        >
+            {navLinks}
+        </motion.nav>
+      )}
+    </AnimatePresence>
     </>
 
   )

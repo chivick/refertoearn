@@ -16,15 +16,17 @@
 }
 
 #joinInfo button {
-    background-color: #bf7934;
+    background-color: #995b1f;
+
     width: 70%;
-    padding: 1vw 0;
+    padding: 6px 0;
     margin-top: 2vw;
+    margin-bottom: 2px;
 
     color: #f7f7ff;
     font-size: 1.27rem;
     letter-spacing: 1px;
-
+    border: 1px solid #4d2e10;
     border-radius: 10px;
 }
 
@@ -43,6 +45,7 @@
 }
 
 #usersInfo span {
+    display: block;
     margin-top: 1.3vh;
     margin-bottom: 1.3vh;
 
@@ -132,7 +135,8 @@
 
 @media (min-width: 992px) {
     #joinInfo button {
-        width: 40%;
+        width: 35%;
+        padding: 14px 0;
     }
     #joinInfo span {
         font-size: 1rem;

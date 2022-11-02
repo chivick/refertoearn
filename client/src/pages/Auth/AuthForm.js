@@ -8,11 +8,11 @@ import styles from './AuthForm.module.css'
 
 const AuthForm = ({ type, refID }) => {
 
-    const [fullNameInputJsx, fullName, setFullName] = useInput({type: 'text', placeholder: ''})
-    const [emailInputJsx, email, setEmail] = useInput({type: 'text', placeholder: ''})
-    const [passwordInputJsx, password, setPassword] = useInput({type: 'password', placeholder: ''})
-    const [confirmPasswordInputJsx, confirmPassword, setConfirmPassword] = useInput({type: 'password', placeholder: ''})
-    const [referrerInputJsx, referrer, setReferrer] = useInput({type: 'text', placeholder: ''}, refID || '')
+    const [fullNameInputJsx, fullName] = useInput({type: 'text', placeholder: ''})
+    const [emailInputJsx, email] = useInput({type: 'text', placeholder: ''})
+    const [passwordInputJsx, password] = useInput({type: 'password', placeholder: ''})
+    const [confirmPasswordInputJsx, confirmPassword] = useInput({type: 'password', placeholder: ''})
+    const [referrerInputJsx, referrer] = useInput({type: 'text', placeholder: ''}, refID || '')
 
     const navigate = useNavigate()
     const location = useLocation()
