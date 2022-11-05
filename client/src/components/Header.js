@@ -13,14 +13,17 @@ const Header = () => {
   const navLinks = 
   <>
     <Link to="/">Home</Link>
-    <Link to="/">About</Link>
-    <Link to="/">Contact</Link>
+    <a href="https://github.com/chivick">About</a>
+    <a href="mailto:akalonuvictorchimaobi@gmail.com">Contact</a>
     <Link to='/signup'>Signup</Link>
     <Link to='/login'>Login</Link>
   </>
 
   return (
     <>
+    <div id={styles.ownership}>
+      Site developed by: <a href='mailto:akalonuvictorchimaobi@gmail.com'>Victor Chimaobi</a>
+    </div>
     <header id={styles.header}>
 
       <div id={styles.logo}>Refer2Earn</div>

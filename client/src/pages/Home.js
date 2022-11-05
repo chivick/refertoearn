@@ -15,21 +15,6 @@ import sponsors from '../assets/sponsors';
 import styles from './Home.module.css'
 import { joinButtonVariants, usersInfoVariants } from '../others/variants'
 
-const userReviews = [
-    { 
-        user: 'Jason Westwood', 
-        content: "I didn't know I could make a lot of money from this platform. I wish I had known this website earlier, I would certainly have made much more money. Thanks to the owners for making this site a success."
-    },
-    { 
-        user: 'Sarah McKent', 
-        content: "Ever since joining this platform, I've had the best user experience as the website is easy to navigate and easy to understand. And most importantly, making money on this platform has always been a good addition to my income."
-    },
-    { 
-        user: 'Michael Scott', 
-        content: "I love the fact that you can make cool money on this platform just by referring freinds and relatives."
-    },
-]
-
 const Home = () => {
 
     const { setUser } = useContext(AuthContext)
@@ -114,7 +99,7 @@ const Home = () => {
             <div>Don't have an account? <Link to='/signup'>Register</Link></div>
         </div>
 
-        <ReviewsSlider data={userReviews} />
+        <ReviewsSlider />
 
         <div id={styles.sponsors}>
             <span>Sponsored by:</span>

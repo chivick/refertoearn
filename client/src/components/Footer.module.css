@@ -34,6 +34,11 @@ footer #copyright {
     font-size: 0.8em;
 }
 
+footer #copyright a {
+    color: rgb(201, 201, 61);
+}
+
+
 @media (min-width: 992px) {
     footer li {
         margin-top: 1vw;
